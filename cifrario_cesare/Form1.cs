@@ -30,19 +30,31 @@ namespace cifrario_cesare
                 {
                     if (s == ' ')
                     {
-                        int cifra = Convert.ToInt32(frase[i]);
-                        cifra += chiave;
-                        if (cifra>122)
-                        {
-                            cifra -= 26 + chiave;
-                        }
 
                     }
+                    int cifra = Convert.ToInt32(frase[i]);
+
+                    if (cifra >= 97 && cifra <= 122)
+                    {
+                        cifra -= 96;
+                        cifra += chiave;
+                    }
+                    else if (cifra > 122)
+                    {
+                        cifra -= 26 + chiave;
+                    }
+                    else if (cifra >= 65 && cifra <= 90)
+                    {
+                        cifra -= 64;
+                        cifra += chiave;
+                    }
+                    i += cifra;
+                    lbl_cifrario.Text = Convert.ToString(i);
                 }
 
 
 
-                lbl_cifrario.Text = Convert.ToString(somma);
+                
 
             }
         }
