@@ -19,44 +19,48 @@ namespace cifrario_cesare
 
         private void btn_cifra_Click(object sender, EventArgs e)
         {
-            int chiave = Convert.ToInt32(textBox2.Text), somma = 0;
-            string frase = textBox1.Text;
+            int chiave = Convert.ToInt32(txt_chiave.Text), somma = 0;
+            string frase = txt_n1.Text;
+
+            char[] frase_cifrata = frase.ToCharArray();
 
             for (int i = 0; i < frase.Length; i++)
             {
-                
-
-                foreach (char s in frase)
+                char c = frase_cifrata[i];
                 {
-                    if (s == ' ')
+                    if (c >= 'a' && c <= 'z')
                     {
-
+                        frase_cifrata[i] = (char)(((c - 'a' + chiave) % 26) + 'a');
                     }
-                    int cifra = Convert.ToInt32(frase[i]);
-
-                    if (cifra >= 97 && cifra <= 122)
+                    else if (c >= 'A' && c <= 'Z')
                     {
-                        cifra -= 96;
-                        cifra += chiave;
+                        frase_cifrata[i] = (char)(((c - 'A' + chiave) % 26) + 'A');
                     }
-                    else if (cifra > 122)
-                    {
-                        cifra -= 26 + chiave;
-                    }
-                    else if (cifra >= 65 && cifra <= 90)
-                    {
-                        cifra -= 64;
-                        cifra += chiave;
-                    }
-                    i += cifra;
-                    lbl_cifrario.Text = Convert.ToString(i);
+                    lbl_cifrario.Text = new string(frase_cifrata); 
                 }
-
-
-
-                
-
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            int chiave = Convert.ToInt32(txt_chiave2.Text);
+            string frase = txt_n2.Text;
+
+            char[] frase_decifrata = frase.ToCharArray();
+
+            for (int i = 0; i < frase.Length; i++)
+            {
+                char c = frase_decifrata[i];
+                if (c >= 'a' && c <= 'z')
+                {
+                    frase_decifrata[i] = (char)(((c - 'a' - chiave - 26) % 26) + 'a');
+                }
+                else if (c >= 'A' && c <= 'Z')
+                {
+                    frase_decifrata[i] = (char)(((c - 'A' - chiave - 26) % 26) + 'A');
+                }
+            }
+            lbl_decripta.Text = new string(frase_decifrata);
         }
     }
 }
