@@ -35,12 +35,18 @@
             this.lbl_n3 = new System.Windows.Forms.Label();
             this.lbl_cifrario = new System.Windows.Forms.Label();
             this.txt_chiave = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lbl_n4 = new System.Windows.Forms.Label();
             this.txt_n2 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lbl_n5 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.lbl_decripta = new System.Windows.Forms.Label();
             this.txt_chiave2 = new System.Windows.Forms.TextBox();
+            this.lbl_n6 = new System.Windows.Forms.Label();
+            this.txt_n3 = new System.Windows.Forms.TextBox();
+            this.lbl_n7 = new System.Windows.Forms.Label();
+            this.txt_parola = new System.Windows.Forms.TextBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.lbl_criptaggio_parola = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lbl_n1
@@ -107,15 +113,15 @@
             this.txt_chiave.Size = new System.Drawing.Size(38, 20);
             this.txt_chiave.TabIndex = 5;
             // 
-            // label1
+            // lbl_n4
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Modern No. 20", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(292, 325);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(260, 24);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "Inserire la frase da decriptare";
+            this.lbl_n4.AutoSize = true;
+            this.lbl_n4.Font = new System.Drawing.Font("Modern No. 20", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_n4.Location = new System.Drawing.Point(292, 325);
+            this.lbl_n4.Name = "lbl_n4";
+            this.lbl_n4.Size = new System.Drawing.Size(260, 24);
+            this.lbl_n4.TabIndex = 7;
+            this.lbl_n4.Text = "Inserire la frase da decriptare";
             // 
             // txt_n2
             // 
@@ -124,15 +130,15 @@
             this.txt_n2.Size = new System.Drawing.Size(343, 20);
             this.txt_n2.TabIndex = 8;
             // 
-            // label2
+            // lbl_n5
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Modern No. 20", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(332, 393);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(159, 24);
-            this.label2.TabIndex = 9;
-            this.label2.Text = "Inserire la chiave";
+            this.lbl_n5.AutoSize = true;
+            this.lbl_n5.Font = new System.Drawing.Font("Modern No. 20", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_n5.Location = new System.Drawing.Point(332, 393);
+            this.lbl_n5.Name = "lbl_n5";
+            this.lbl_n5.Size = new System.Drawing.Size(159, 24);
+            this.lbl_n5.TabIndex = 9;
+            this.lbl_n5.Text = "Inserire la chiave";
             // 
             // button1
             // 
@@ -161,17 +167,77 @@
             this.txt_chiave2.Size = new System.Drawing.Size(38, 20);
             this.txt_chiave2.TabIndex = 12;
             // 
+            // lbl_n6
+            // 
+            this.lbl_n6.AutoSize = true;
+            this.lbl_n6.Font = new System.Drawing.Font("Modern No. 20", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_n6.Location = new System.Drawing.Point(677, 87);
+            this.lbl_n6.Name = "lbl_n6";
+            this.lbl_n6.Size = new System.Drawing.Size(242, 24);
+            this.lbl_n6.TabIndex = 13;
+            this.lbl_n6.Text = "Inserire la frase da criptare";
+            // 
+            // txt_n3
+            // 
+            this.txt_n3.Location = new System.Drawing.Point(639, 114);
+            this.txt_n3.Name = "txt_n3";
+            this.txt_n3.Size = new System.Drawing.Size(315, 20);
+            this.txt_n3.TabIndex = 14;
+            // 
+            // lbl_n7
+            // 
+            this.lbl_n7.AutoSize = true;
+            this.lbl_n7.Font = new System.Drawing.Font("Modern No. 20", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_n7.Location = new System.Drawing.Point(686, 161);
+            this.lbl_n7.Name = "lbl_n7";
+            this.lbl_n7.Size = new System.Drawing.Size(233, 24);
+            this.lbl_n7.TabIndex = 15;
+            this.lbl_n7.Text = "Inserire la chiave (parola)";
+            // 
+            // txt_parola
+            // 
+            this.txt_parola.Location = new System.Drawing.Point(733, 200);
+            this.txt_parola.Name = "txt_parola";
+            this.txt_parola.Size = new System.Drawing.Size(110, 20);
+            this.txt_parola.TabIndex = 16;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(742, 235);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(94, 36);
+            this.button2.TabIndex = 17;
+            this.button2.Text = "CRIPTA";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // lbl_criptaggio_parola
+            // 
+            this.lbl_criptaggio_parola.AutoSize = true;
+            this.lbl_criptaggio_parola.Font = new System.Drawing.Font("Modern No. 20", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_criptaggio_parola.Location = new System.Drawing.Point(677, 274);
+            this.lbl_criptaggio_parola.Name = "lbl_criptaggio_parola";
+            this.lbl_criptaggio_parola.Size = new System.Drawing.Size(235, 24);
+            this.lbl_criptaggio_parola.TabIndex = 18;
+            this.lbl_criptaggio_parola.Text = "*frase criptata con parola*";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 591);
+            this.ClientSize = new System.Drawing.Size(1117, 591);
+            this.Controls.Add(this.lbl_criptaggio_parola);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.txt_parola);
+            this.Controls.Add(this.lbl_n7);
+            this.Controls.Add(this.txt_n3);
+            this.Controls.Add(this.lbl_n6);
             this.Controls.Add(this.txt_chiave2);
             this.Controls.Add(this.lbl_decripta);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lbl_n5);
             this.Controls.Add(this.txt_n2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lbl_n4);
             this.Controls.Add(this.lbl_cifrario);
             this.Controls.Add(this.txt_chiave);
             this.Controls.Add(this.lbl_n3);
@@ -195,12 +261,18 @@
         private System.Windows.Forms.Label lbl_n3;
         private System.Windows.Forms.Label lbl_cifrario;
         private System.Windows.Forms.TextBox txt_chiave;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lbl_n4;
         private System.Windows.Forms.TextBox txt_n2;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lbl_n5;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label lbl_decripta;
         private System.Windows.Forms.TextBox txt_chiave2;
+        private System.Windows.Forms.Label lbl_n6;
+        private System.Windows.Forms.TextBox txt_n3;
+        private System.Windows.Forms.Label lbl_n7;
+        private System.Windows.Forms.TextBox txt_parola;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label lbl_criptaggio_parola;
     }
 }
 

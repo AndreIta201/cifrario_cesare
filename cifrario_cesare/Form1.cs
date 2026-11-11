@@ -48,19 +48,45 @@ namespace cifrario_cesare
 
             char[] frase_decifrata = frase.ToCharArray();
 
+            chiave = chiave % 26;
             for (int i = 0; i < frase.Length; i++)
             {
                 char c = frase_decifrata[i];
                 if (c >= 'a' && c <= 'z')
                 {
-                    frase_decifrata[i] = (char)(((c - 'a' - chiave - 26) % 26) + 'a');
+                    frase_decifrata[i] = (char)(((c - 'a' - chiave + 26) % 26) + 'a');
                 }
                 else if (c >= 'A' && c <= 'Z')
                 {
-                    frase_decifrata[i] = (char)(((c - 'A' - chiave - 26) % 26) + 'A');
+                    frase_decifrata[i] = (char)(((c - 'A' - chiave + 26) % 26) + 'A');
                 }
             }
             lbl_decripta.Text = new string(frase_decifrata);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+            string frase = txt_n1.Text, chiave = txt_parola.Text;
+            int somma = 0, l = chiave.Length;
+
+            char[] frase_cifrata = frase.ToCharArray();
+
+            for (int i = 0; i < frase.Length; i++)
+            {
+                char c = frase_cifrata[i];
+                {
+                    if (c >= 'a' && c <= 'z')
+                    {
+                        frase_cifrata[i] = (char)(((c - 'a' + chiave[i % l] - 'a') % 26) + 'a');
+                    }
+                    else if (c >= 'A' && c <= 'Z')
+                    {
+                        frase_cifrata[i] = (char)(((c - 'A' + chiave[i % l] - 'a') % 26) + 'A');
+                    }
+                    lbl_criptaggio_parola.Text = new string(frase_cifrata);
+                }
+            }
         }
     }
 }
