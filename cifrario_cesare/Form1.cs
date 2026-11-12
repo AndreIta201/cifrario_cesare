@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.Configuration;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -19,9 +20,8 @@ namespace cifrario_cesare
 
         private void btn_cifra_Click(object sender, EventArgs e)
         {
-            int chiave = Convert.ToInt32(txt_chiave.Text), somma = 0;
+            int chiave = Convert.ToInt32(txt_chiave.Text);
             string frase = txt_n1.Text;
-
             char[] frase_cifrata = frase.ToCharArray();
 
             for (int i = 0; i < frase.Length; i++)
@@ -45,7 +45,6 @@ namespace cifrario_cesare
         {
             int chiave = Convert.ToInt32(txt_chiave2.Text);
             string frase = txt_n2.Text;
-
             char[] frase_decifrata = frase.ToCharArray();
 
             chiave = chiave % 26;
@@ -67,26 +66,32 @@ namespace cifrario_cesare
         private void button2_Click(object sender, EventArgs e)
         {
 
-            string frase = txt_n1.Text, chiave = txt_parola.Text;
-            int somma = 0, l = chiave.Length;
-
+            string frase = txt_n3.Text, chiave = txt_parola.Text;
+            int j = 0;
             char[] frase_cifrata = frase.ToCharArray();
+            chiave = chiave.ToLower();
 
             for (int i = 0; i < frase.Length; i++)
             {
                 char c = frase_cifrata[i];
                 {
+
                     if (c >= 'a' && c <= 'z')
                     {
-                        frase_cifrata[i] = (char)(((c - 'a' + chiave[i % l] - 'a') % 26) + 'a');
+
+                        frase_cifrata[i] = (char)(((c - 'a' + chiave[j % chiave.Length] - 'a') % 26) + 'a');
+                        j++;
                     }
                     else if (c >= 'A' && c <= 'Z')
                     {
-                        frase_cifrata[i] = (char)(((c - 'A' + chiave[i % l] - 'a') % 26) + 'A');
+                        
+                        frase_cifrata[i] = (char)(((c - 'A' + chiave[j % chiave.Length] - 'a') % 26) + 'A');
+                        j++;
                     }
-                    lbl_criptaggio_parola.Text = new string(frase_cifrata);
+
                 }
             }
+            lbl_criptaggio_parola.Text = new string(frase_cifrata);
         }
     }
 }
