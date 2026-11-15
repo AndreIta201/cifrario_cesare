@@ -93,5 +93,35 @@ namespace cifrario_cesare
             }
             lbl_criptaggio_parola.Text = new string(frase_cifrata);
         }
+
+        private void btn_decripta2_Click(object sender, EventArgs e)
+        {
+            string frase = txt_n4.Text, chiave = txt_decriptaggio_parola.Text;
+            int j = 0;
+            char[] frase_cifrata = frase.ToCharArray();
+            chiave = chiave.ToLower();
+
+            for (int i = 0; i < frase.Length; i++)
+            {
+                char c = frase_cifrata[i];
+                {
+
+                    if (c >= 'a' && c <= 'z')
+                    {
+
+                        frase_cifrata[i] = (char)(((c - 'a' - (chiave[j % chiave.Length] - 'a') + 26) % 26) + 'a');
+                        j++;
+                    }
+                    else if (c >= 'A' && c <= 'Z')
+                    {
+
+                        frase_cifrata[i] = (char)(((c - 'A' - (chiave[j % chiave.Length] - 'a') + 26) % 26) + 'A');
+                        j++;
+                    }
+
+                }
+            }
+            lbl_decriptaggio_parola.Text = new string(frase_cifrata);
+        }
     }
 }
